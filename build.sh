@@ -44,18 +44,16 @@ pip install -r requirements.txt
 # Copy the docs to the output directory
 USER=$(stat -c '%u' ${DEST_PATH})
 GROUP=$(stat -c '%g' ${DEST_PATH})
-rsync -avz --chown=${USER}:${GROUP} --delete --exclude='.nojekyll' build/html/ ${DEST_PATH}/docs/
+rsync -avz --chown=${USER}:${GROUP} --delete --exclude='.nojekyll' build/html ${DEST_PATH}/
 
 popd
 
 # Clean up the temporary directory
 rm -rf ${TEMP_DIR}
 
-# Fix lint issues in ${DEST_PATH}/docs
-
 echo """
 
-The docs have been built and copied to ${DEST_PATH}/docs
+The docs have been built and copied to ${DEST_PATH}/html
 
 Verify changes from your git repo.
 """
