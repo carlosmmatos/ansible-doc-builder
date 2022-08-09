@@ -51,6 +51,9 @@ popd
 # Clean up the temporary directory
 rm -rf ${TEMP_DIR}
 
+# Add nojekyll file to the output directory
+touch ${DEST_PATH}/html/.nojekyll
+
 echo """
 
 The docs have been built and copied to ${DEST_PATH}/html
